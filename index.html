@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>イタリア・スイス旅行 2025年8月</title>
+  <style>
+    :root {
+      --milan-color: #2e7d32;
+      --swiss-color: #c62828;
+      --bg: #fafaf7;
+      --card-bg: #ffffff;
+      --text: #2c2c2c;
+      --text-light: #666;
+      --border: #e8e4df;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #1a472a 0%, #2e7d32 30%, #c62828 70%, #8b1a1a 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      position: relative;
+      letter-spacing: 0.02em;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      position: relative;
+    }
+    .hero .flags {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    /* Container */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Day Section */
+    .day-section {
+      margin: 40px 0;
+    }
+    .day-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding: 18px 24px;
+      border-radius: 14px;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .day-header.italy { background: linear-gradient(135deg, #2e7d32, #388e3c); }
+    .day-header.swiss { background: linear-gradient(135deg, #c62828, #d32f2f); }
+    .day-header .day-flag { font-size: 1.8rem; }
+    .day-header .day-info h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    .day-header .day-info p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 36px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 14px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 6px;
+      padding: 14px 20px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease;
+    }
+    .timeline-item:hover {
+      transform: translateX(4px);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -29px;
+      top: 20px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #bbb;
+      border: 2px solid var(--bg);
+    }
+    .timeline-item.meal::before { background: #e65100; }
+    .timeline-item.activity::before { background: #1565c0; }
+    .timeline-item.transport::before { background: #6a1b9a; }
+    .timeline-item.hotel::before { background: #00838f; }
+
+    .timeline-item .time {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-light);
+      letter-spacing: 0.04em;
+      margin-bottom: 2px;
+    }
+    .timeline-item .event {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .timeline-item .event .emoji {
+      margin-right: 6px;
+    }
+    .timeline-item .desc {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+    .timeline-item .rating {
+      display: inline-block;
+      background: #fff8e1;
+      color: #f9a825;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 1px 8px;
+      border-radius: 20px;
+      margin-left: 6px;
+    }
+    .timeline-item .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-top: 6px;
+    }
+    .tag.reservation {
+      background: #fce4ec;
+      color: #c62828;
+    }
+
+    /* Info Sections */
+    .info-section {
+      margin: 48px 0;
+      padding: 28px;
+      background: var(--card-bg);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .info-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .info-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .info-section li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .info-section li:last-child { border-bottom: none; }
+    .info-section li .date-badge {
+      display: inline-block;
+      background: #e3f2fd;
+      color: #1565c0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-right: 8px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero { padding: 50px 16px 40px; }
+      .hero h1 { font-size: 1.8rem; }
+      .hero .flags { font-size: 2.2rem; }
+      .day-header { padding: 14px 16px; }
+      .day-header .day-info h2 { font-size: 1.1rem; }
+      .container { padding: 0 12px; }
+      .timeline { padding-left: 30px; }
+      .timeline-item { padding: 12px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="flags">🇮🇹 🇨🇭</div>
+    <h1>イタリア・スイス旅行</h1>
+    <p>2025年8月9日（土）〜 8月14日（木）｜ミラノ → ツェルマット → ブリエンツ湖 → チューリッヒ</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Day 1: Aug 9 -->
+    <section class="day-section">
+      <div class="day-header italy">
+        <span class="day-flag">🇮🇹</span>
+        <div class="day-info">
+          <h2>8月9日（土）｜ミラノ到着日</h2>
+          <p>Day 1 — Milano</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item transport">
+          <div class="time">08:00</div>
+          <div class="event"><span class="emoji">✈️</span>ミラノ到着</div>
+          <div class="desc">マルペンサ空港 or リナーテ空港</div>
+        </div>
+        <div class="timeline-item hotel">
+          <div class="time">09:30</div>
+          <div class="event"><span class="emoji">🏨</span>HD8 ホテル チェックイン</div>
+          <div class="desc">荷物だけ預けてすぐ出発</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">10:00</div>
+          <div class="event"><span class="emoji">🚶</span>ガッレリア・ヴィットーリオ・エマヌエーレ2世を散策</div>
+          <div class="desc">周辺をぶらぶら</div>
+        </div>
+        <div class="timeline-item meal">
+          <div class="time">12:00</div>
+          <div class="event"><span class="emoji">🍝</span>ランチ：Via Pasteria <span class="rating">★ 4.7</span></div>
+          <div class="desc">ドゥオーモ近くで本格パスタ。人気店なので列覚悟！カチョエペペやリゾットが絶品</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">14:00</div>
+          <div class="event"><span class="emoji">⛪</span>ドゥオーモ広場を散策</div>
+          <div class="desc">外観を堪能（到着日は内部＆屋上は翌朝に）</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">16:00</div>
+          <div class="event"><span class="emoji">🛍️</span>ブレラ地区を散策</div>
+          <div class="desc">アート・ギャラリー・カフェが集まるおしゃれエリア</div>
+        </div>
+        <div class="timeline-item hotel">
+          <div class="time">18:00</div>
+          <div class="event"><span class="emoji">🛁</span>ホテルに戻って休憩・シャワー</div>
+        </div>
+        <div class="timeline-item meal">
+          <div class="time">19:30</div>
+          <div class="event"><span class="emoji">🍷</span>ディナー：Gloria Osteria Milano <span class="rating">★ 4.8</span></div>
+          <div class="desc">モダンイタリア料理の名店。牛カルパッチョ、タコのメインが絶品</div>
+          <span class="tag reservation">📞 要予約</span>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">21:30</div>
+          <div class="event"><span class="emoji">🌃</span>ドゥオーモのライトアップを見ながら帰宿</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Day 2: Aug 10 -->
+    <section class="day-section">
+      <div class="day-header italy">
+        <span class="day-flag">🇮🇹</span>
+        <div class="day-info">
+          <h2>8月10日（日）｜ミラノ観光 → ツェルマット移動</h2>
+          <p>Day 2 — Milano → Zermatt</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item meal">
+          <div class="time">07:30</div>
+          <div class="event"><span class="emoji">🥐</span>朝食</div>
+          <div class="desc">ホテル朝食 or 近くのバールでエスプレッソ＆コルネット（クロワッサン）</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">09:00</div>
+          <div class="event"><span class="emoji">⛪</span>ドゥオーモ屋上テラス <span class="rating">★ 4.7</span></div>
+          <div class="desc">混む前に！大理石の尖塔の間を歩く幻想的な体験。チケットは事前オンライン購入推奨</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">11:00</div>
+          <div class="event"><span class="emoji">🎨</span>ガッレリア内を散策、お土産チェック</div>
+        </div>
+        <div class="timeline-item meal">
+          <div class="time">12:00</div>
+          <div class="event"><span class="emoji">🍝</span>ランチ：Taverna Trastevere Milano <span class="rating">★ 4.6</span></div>
+          <div class="desc">地元民にも人気の本格トラットリア。トリュフパスタやリゾット・ミラネーゼが◎</div>
+        </div>
+        <div class="timeline-item transport">
+          <div class="time">13:30</div>
+          <div class="event"><span class="emoji">🚆</span>ミラノ中央駅 → ブリークへ電車出発</div>
+        </div>
+        <div class="timeline-item transport">
+          <div class="time">17:30</div>
+          <div class="event"><span class="emoji">🏔️</span>ブリークでマッターホルン・ゴッタルド鉄道に乗り換え</div>
+          <div class="desc">ツェルマットへ</div>
+        </div>
+        <div class="timeline-item hotel">
+          <div class="time">18:30</div>
+          <div class="event"><span class="emoji">🏨</span>ホテル シティ チェックイン</div>
+        </div>
+        <div class="timeline-item meal">
+          <div class="time">19:30</div>
+          <div class="event"><span class="emoji">🫕</span>ディナー：Restaurant Schäferstube <span class="rating">★ 4.6</span></div>
+          <div class="desc">村の中心部にあるスイス料理の名店。ラムラックやチーズフォンデュが看板メニュー</div>
+          <span class="tag reservation">📞 要予約</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Day 3: Aug 11 -->
+    <section class="day-section">
+      <div class="day-header swiss">
+        <span class="day-flag">🇨🇭</span>
+        <div class="day-info">
+          <h2>8月11日（月）｜ツェルマット満喫日</h2>
+          <p>Day 3 — Zermatt</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item meal">
+          <div class="time">07:00</div>
+          <div class="event"><span class="emoji">☕</span>朝食</div>
+          <div class="desc">ホテル朝食でしっかり食べて出発準備</div>
+        </div>
+        <div class="timeline-item transport">
+          <div class="time">08:00</div>
+          <div class="event"><span class="emoji">🚞</span>ゴルナーグラート鉄道で標高3,089mへ</div>
+          <div class="desc">早朝は空気が澄んでいてマッターホルンが最高に映える！</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">09:00</div>
+          <div class="event"><span class="emoji">🏔️</span>ゴルナーグラート展望台 <span class="rating">★ 4.8</span></div>
+          <div class="desc">マッターホルンを眺める。写真撮影タイム</div>
+        </div>
+        <div class="timeline-item meal">
+          <div class="time">11:00</div>
+          <div class="event"><span class="emoji">🥗</span>ランチ：Restaurant Zum See <span class="rating">★ 4.8</span></div>
+          <div class="desc">帰り道にフリ駅から徒歩15分のアルプス山小屋レストラン。自家製パスタ＆ロスティが絶品！</div>
+          <span class="tag reservation">📞 要予約</span>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">13:30</div>
+          <div class="event"><span class="emoji">🚶</span>ツェルマット村へ徒歩で下山</div>
+          <div class="desc">散策しながら</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">15:00</div>
+          <div class="event"><span class="emoji">🍫</span>スイスチョコ試食＆お土産ショッピング</div>
+        </div>
+        <div class="timeline-item hotel">
+          <div class="time">17:00</div>
+          <div class="event"><span class="emoji">💆</span>ホテルのスパ or リラックスタイム</div>
+        </div>
+        <div class="timeline-item meal">
+          <div class="time">19:30</div>
+          <div class="event"><span class="emoji">🍖</span>ディナー：Bergrestaurant Blatten <span class="rating">★ 4.8</span></div>
+          <div class="desc">地元スイス料理の穴場的名店。マッシュルームスープとロスティが絶品！</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Day 4: Aug 12 -->
+    <section class="day-section">
+      <div class="day-header swiss">
+        <span class="day-flag">🇨🇭</span>
+        <div class="day-info">
+          <h2>8月12日（火）｜ツェルマット → リンゲンベルク移動</h2>
+          <p>Day 4 — Zermatt → Ringgenberg</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item meal">
+          <div class="time">07:30</div>
+          <div class="event"><span class="emoji">☕</span>朝食：ホテル朝食</div>
+        </div>
+        <div class="timeline-item transport">
+          <div class="time">09:00</div>
+          <div class="event"><span class="emoji">🏨</span>チェックアウト＆電車でインターラーケン方面へ</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">11:00</div>
+          <div class="event"><span class="emoji">🕯️</span>聖ベアトゥス洞窟 <span class="rating">★ 4.6</span></div>
+          <div class="desc">トゥーン湖畔の神秘的な鍾乳洞。1km超の洞内を約1時間探検（10時〜17時）</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">13:00</div>
+          <div class="event"><span class="emoji">🌊</span>聖ベアトゥス滝 <span class="rating">★ 4.8</span></div>
+        </div>
+        <div class="timeline-item meal">
+          <div class="time">14:00</div>
+          <div class="event"><span class="emoji">🥩</span>ランチ：洞窟併設レストラン</div>
+          <div class="desc">スイス軽食</div>
+        </div>
+        <div class="timeline-item hotel">
+          <div class="time">16:00</div>
+          <div class="event"><span class="emoji">🏨</span>Hotel Brienzersee チェックイン</div>
+          <div class="desc">ブリエンツ湖畔リンゲンベルク</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">18:30</div>
+          <div class="event"><span class="emoji">🌅</span>湖を眺めながらテラスでアペリティフ</div>
+        </div>
+        <div class="timeline-item meal">
+          <div class="time">19:30</div>
+          <div class="event"><span class="emoji">🫕</span>ディナー：Restaurant Bramisegg <span class="rating">★ 4.8</span></div>
+          <div class="desc">ブリエンツ湖を一望できる山の上の絶景レストラン。ラクレット、ロスティ、グラーシュが名物</div>
+          <span class="tag reservation">📞 要予約（水〜日のみ営業）</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Day 5: Aug 13 -->
+    <section class="day-section">
+      <div class="day-header swiss">
+        <span class="day-flag">🇨🇭</span>
+        <div class="day-info">
+          <h2>8月13日（水）｜ブリエンツ湖エリアをゆっくり</h2>
+          <p>Day 5 — Lake Brienz &amp; Interlaken</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item meal">
+          <div class="time">08:00</div>
+          <div class="event"><span class="emoji">☕</span>朝食：ホテル朝食</div>
+          <div class="desc">湖を眺めながら優雅に</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">09:30</div>
+          <div class="event"><span class="emoji">🚶</span>ブリエンツ湖ウォーク <span class="rating">★ 4.8</span></div>
+          <div class="desc">ターコイズブルーの湖畔を朝の爽やかな空気の中で散策</div>
+        </div>
+        <div class="timeline-item transport">
+          <div class="time">11:30</div>
+          <div class="event"><span class="emoji">⛴️</span>ブリエンツへ蒸気船クルーズ</div>
+          <div class="desc">ヴィンテージ蒸気船で湖をのんびり横断（約1時間）</div>
+        </div>
+        <div class="timeline-item meal">
+          <div class="time">13:00</div>
+          <div class="event"><span class="emoji">🏔️</span>ランチ：Harder Kulm（ハーダークルム展望台） <span class="rating">★ 4.6</span></div>
+          <div class="desc">インターラーケンのフニクラーで登る絶景レストラン。2つの湖と山々を一望しながら食事</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">15:00</div>
+          <div class="event"><span class="emoji">🛍️</span>インターラーケン市内でショッピング・カフェタイム</div>
+        </div>
+        <div class="timeline-item hotel">
+          <div class="time">17:00</div>
+          <div class="event"><span class="emoji">🚌</span>ホテルへ戻る</div>
+        </div>
+        <div class="timeline-item hotel">
+          <div class="time">18:30</div>
+          <div class="event"><span class="emoji">🛁</span>ゆっくり入浴・荷物整理</div>
+          <div class="desc">明日は移動日</div>
+        </div>
+        <div class="timeline-item meal">
+          <div class="time">19:30</div>
+          <div class="event"><span class="emoji">🫕</span>ディナー：Restaurant Taverne <span class="rating">★ 4.4</span></div>
+          <div class="desc">チーズフォンデュとチョコレートフォンデュが名物。チョコフォンデュはスイス最後の夜に◎！</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Day 6: Aug 14 -->
+    <section class="day-section">
+      <div class="day-header swiss">
+        <span class="day-flag">🇨🇭</span>
+        <div class="day-info">
+          <h2>8月14日（木）｜チューリッヒへ・旅の締めくくり</h2>
+          <p>Day 6 — Zürich</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item meal">
+          <div class="time">08:00</div>
+          <div class="event"><span class="emoji">☕</span>朝食：ホテル朝食</div>
+        </div>
+        <div class="timeline-item transport">
+          <div class="time">09:00</div>
+          <div class="event"><span class="emoji">🏨</span>チェックアウト＆電車でチューリッヒへ</div>
+          <div class="desc">約2時間</div>
+        </div>
+        <div class="timeline-item transport">
+          <div class="time">11:00</div>
+          <div class="event"><span class="emoji">🎭</span>チューリッヒ中央駅着</div>
+          <div class="desc">荷物をコインロッカーへ</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">11:30</div>
+          <div class="event"><span class="emoji">⛪</span>グロスミュンスター <span class="rating">★ 4.5</span></div>
+          <div class="desc">入場無料・塔は5CHF</div>
+        </div>
+        <div class="timeline-item meal">
+          <div class="time">12:30</div>
+          <div class="event"><span class="emoji">🍽️</span>ランチ：Zeughauskeller <span class="rating">★ 4.5</span></div>
+          <div class="desc">15世紀の武器庫を改装した歴史的レストラン。ヴィーナーシュニッツェルとブラートヴルストが名物。チューリッヒで最も有名なスイス料理店！</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">14:00</div>
+          <div class="event"><span class="emoji">🌳</span>リンデンホフの丘 <span class="rating">★ 4.7</span></div>
+          <div class="desc">旧市街を一望。巨大チェスも◎</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">15:00</div>
+          <div class="event"><span class="emoji">🏛️</span>スイス国立博物館 <span class="rating">★ 4.6</span></div>
+          <div class="desc">中央駅隣、火〜日10時〜。スイス文化をおさらい</div>
+        </div>
+        <div class="timeline-item activity">
+          <div class="time">16:30</div>
+          <div class="event"><span class="emoji">🍫</span>バーンホフシュトラーセで最終お土産調達</div>
+          <div class="desc">リンツ・シュプリングリーなど</div>
+        </div>
+        <div class="timeline-item hotel">
+          <div class="time">18:00</div>
+          <div class="event"><span class="emoji">🚊</span>ノボテル チューリッヒ エアポート メッセ</div>
+          <div class="desc">移動・チェックイン</div>
+        </div>
+        <div class="timeline-item meal">
+          <div class="time">19:30</div>
+          <div class="event"><span class="emoji">🥂</span>ディナー：ホテル内レストラン or 空港近く</div>
+          <div class="desc">軽めに。翌日のフライトに備えて早めに就寝</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reservation Info -->
+    <section class="info-section">
+      <h3>📞 予約が必要なレストラン</h3>
+      <p style="font-size:0.88rem; color:var(--text-light); margin-bottom:14px;">事前にOpenTableやTheForkなどで予約しましょう！</p>
+      <ul>
+        <li><span class="date-badge">8/9 ディナー</span>Gloria Osteria Milano</li>
+        <li><span class="date-badge">8/10 ディナー</span>Restaurant Schäferstube</li>
+        <li><span class="date-badge">8/11 ランチ</span>Restaurant Zum See</li>
+        <li><span class="date-badge">8/12 ディナー</span>Restaurant Bramisegg（水〜日営業）</li>
+      </ul>
+    </section>
+
+    <!-- Tickets Info -->
+    <section class="info-section">
+      <h3>🎫 事前購入推奨チケット</h3>
+      <ul>
+        <li><span class="date-badge">8/10</span>ドゥオーモ屋上テラス — duomomilano.it で購入</li>
+        <li><span class="date-badge">8/11</span>ゴルナーグラート鉄道 — gornergrat.ch で購入</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>🇮🇹🇨🇭 Buon viaggio! 素敵な旅を！</p>
+  </footer>
+
+</body>
+</html>
