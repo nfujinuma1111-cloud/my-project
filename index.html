@@ -3,817 +3,577 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>イタリア・スイス旅行 2025年8月</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <title>採用コンサルティング | value gate株式会社</title>
   <style>
     :root {
-      --milan-color: #2e7d32;
-      --swiss-color: #c62828;
-      --bg: #fafaf7;
-      --card-bg: #ffffff;
-      --text: #2c2c2c;
+      --primary: #1a3c6e;
+      --accent: #e8632b;
+      --accent-hover: #d4551e;
+      --dark: #1a1a2e;
+      --text: #333;
       --text-light: #666;
-      --border: #e8e4df;
-      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+      --bg: #fff;
+      --bg-gray: #f7f8fa;
+      --border: #e0e4ea;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
-      background: var(--bg);
+      font-family: 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', sans-serif;
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Hero */
-    .hero {
-      background: linear-gradient(135deg, #1a472a 0%, #2e7d32 30%, #c62828 70%, #8b1a1a 100%);
+    /* ===== Header ===== */
+    .header {
+      background: #fff;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.05em;
+    }
+    .header-cta {
+      background: var(--accent);
       color: #fff;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .header-cta:hover { background: var(--accent-hover); }
+
+    /* ===== Hero ===== */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #2a5a9e 100%);
+      color: #fff;
+      padding: 100px 24px 80px;
       text-align: center;
-      padding: 80px 20px 60px;
       position: relative;
       overflow: hidden;
     }
-    .hero::before {
+    .hero::after {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: var(--bg);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .hero-label {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 6px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+      letter-spacing: 0.1em;
     }
     .hero h1 {
-      font-size: 2.6rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      position: relative;
-      letter-spacing: 0.02em;
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: #ffc857;
     }
     .hero p {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       opacity: 0.9;
-      position: relative;
+      max-width: 600px;
+      margin: 0 auto 36px;
     }
-    .hero .flags {
-      font-size: 3rem;
-      margin-bottom: 16px;
-      position: relative;
-    }
-
-    /* Container */
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Day Section */
-    .day-section {
-      margin: 40px 0;
-    }
-    .day-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
-      padding: 18px 24px;
-      border-radius: 14px;
+    .hero-cta {
+      display: inline-block;
+      background: var(--accent);
       color: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      padding: 16px 48px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(232,99,43,0.4);
     }
-    .day-header.italy { background: linear-gradient(135deg, #2e7d32, #388e3c); }
-    .day-header.swiss { background: linear-gradient(135deg, #c62828, #d32f2f); }
-    .day-header .day-flag { font-size: 1.8rem; }
-    .day-header .day-info h2 {
-      font-size: 1.3rem;
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(232,99,43,0.5);
+    }
+
+    /* ===== Section common ===== */
+    .section { padding: 80px 24px; }
+    .section-gray { background: var(--bg-gray); }
+    .section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--text-light);
+      margin-bottom: 48px;
+      font-size: 0.95rem;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* ===== Pain points ===== */
+    .pain-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .pain-item {
+      background: #fff;
+      border-left: 4px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      font-size: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .pain-item::before {
+      content: '\2715 ';
+      color: var(--accent);
       font-weight: 700;
     }
-    .day-header .day-info p {
-      font-size: 0.9rem;
-      opacity: 0.85;
+
+    /* ===== Features ===== */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 36px 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); }
+    .feature-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+    }
+    .feature-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 0.92rem;
+      line-height: 1.7;
     }
 
-    /* Timeline */
-    .timeline {
+    /* ===== Flow ===== */
+    .flow-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 640px;
+      margin: 0 auto;
       position: relative;
-      padding-left: 36px;
     }
-    .timeline::before {
+    .flow-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      position: relative;
+      padding-bottom: 36px;
+    }
+    .flow-item:last-child { padding-bottom: 0; }
+    .flow-item::before {
       content: '';
       position: absolute;
-      left: 14px;
-      top: 0;
+      left: 23px;
+      top: 48px;
       bottom: 0;
       width: 2px;
       background: var(--border);
     }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 6px;
-      padding: 14px 20px;
-      background: var(--card-bg);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      transition: transform 0.15s ease;
-    }
-    .timeline-item:hover {
-      transform: translateX(4px);
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -29px;
-      top: 20px;
-      width: 10px;
-      height: 10px;
+    .flow-item:last-child::before { display: none; }
+    .flow-num {
+      min-width: 48px;
+      height: 48px;
+      background: var(--primary);
+      color: #fff;
       border-radius: 50%;
-      background: #bbb;
-      border: 2px solid var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
     }
-    .timeline-item.meal::before { background: #e65100; }
-    .timeline-item.activity::before { background: #1565c0; }
-    .timeline-item.transport::before { background: #6a1b9a; }
-    .timeline-item.hotel::before { background: #00838f; }
+    .flow-content h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .flow-content p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
 
-    .timeline-item .time {
+    /* ===== Pricing ===== */
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .pricing-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .pricing-card.popular {
+      border-color: var(--accent);
+      position: relative;
+    }
+    .pricing-card.popular::before {
+      content: '\4EBA\6C17No.1';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      padding: 4px 16px;
+      border-radius: 50px;
       font-size: 0.8rem;
       font-weight: 700;
-      color: var(--text-light);
-      letter-spacing: 0.04em;
-      margin-bottom: 2px;
     }
-    .timeline-item .event {
-      font-size: 1rem;
-      font-weight: 600;
-    }
-    .timeline-item .event .emoji {
-      margin-right: 6px;
-    }
-    .timeline-item .desc {
-      font-size: 0.88rem;
-      color: var(--text-light);
-      margin-top: 4px;
-      line-height: 1.6;
-    }
-    .timeline-item .rating {
-      display: inline-block;
-      background: #fff8e1;
-      color: #f9a825;
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 1px 8px;
-      border-radius: 20px;
-      margin-left: 6px;
-    }
-    .timeline-item .tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 20px;
-      margin-top: 6px;
-    }
-    .tag.reservation {
-      background: #fce4ec;
-      color: #c62828;
-    }
-
-    /* Info Sections */
-    .info-section {
-      margin: 48px 0;
-      padding: 28px;
-      background: var(--card-bg);
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-    .info-section h3 {
-      font-size: 1.2rem;
+    .pricing-card h3 {
+      font-size: 1.1rem;
+      color: var(--primary);
       margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
-    .info-section ul {
+    .pricing-price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .pricing-price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--text-light);
+    }
+    .pricing-note {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+    .pricing-list {
       list-style: none;
-      padding: 0;
+      text-align: left;
+      margin-bottom: 24px;
     }
-    .info-section li {
+    .pricing-list li {
       padding: 8px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--bg-gray);
     }
-    .info-section li:last-child { border-bottom: none; }
-    .info-section li .date-badge {
-      display: inline-block;
-      background: #e3f2fd;
-      color: #1565c0;
-      font-size: 0.78rem;
+    .pricing-list li::before {
+      content: '\2713 ';
+      color: #2ecc71;
       font-weight: 700;
-      padding: 2px 10px;
-      border-radius: 20px;
-      margin-right: 8px;
     }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--text-light);
-      font-size: 0.85rem;
-    }
-
-    /* Map */
-    .map-section {
-      margin: 40px 0;
-    }
-    .map-section h3 {
-      font-size: 1.2rem;
-      margin-bottom: 16px;
+    /* ===== Profile ===== */
+    .profile {
       display: flex;
+      gap: 32px;
       align-items: center;
-      gap: 8px;
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 36px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
     }
-    .map-container {
-      background: var(--card-bg);
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      padding: 20px;
-    }
-    #main-map {
-      height: 480px;
-      border-radius: 10px;
-      z-index: 1;
-    }
-    .day-map {
-      height: 260px;
-      border-radius: 10px;
-      margin-top: 14px;
-      z-index: 1;
-    }
-    .map-legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 14px;
-      font-size: 0.85rem;
-      color: var(--text-light);
-    }
-    .map-legend span {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .legend-dot {
-      width: 10px;
-      height: 10px;
+    .profile-avatar {
+      width: 100px;
+      height: 100px;
+      background: var(--primary);
       border-radius: 50%;
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .profile h3 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+    .profile .role {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .profile p {
+      color: var(--text-light);
+      font-size: 0.9rem;
     }
 
-    /* Responsive */
-    @media (max-width: 600px) {
-      .hero { padding: 50px 16px 40px; }
-      .hero h1 { font-size: 1.8rem; }
-      .hero .flags { font-size: 2.2rem; }
-      .day-header { padding: 14px 16px; }
-      .day-header .day-info h2 { font-size: 1.1rem; }
-      .container { padding: 0 12px; }
-      .timeline { padding-left: 30px; }
-      .timeline-item { padding: 12px 14px; }
-      #main-map { height: 320px; }
-      .day-map { height: 200px; }
+    /* ===== CTA ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, #2a5a9e 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .cta-section h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      opacity: 0.9;
+      margin-bottom: 32px;
+      font-size: 1rem;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 18px 56px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(232,99,43,0.4);
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(232,99,43,0.5);
+    }
+    .cta-note {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.85rem;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.7rem; }
+      .section-title { font-size: 1.4rem; }
+      .profile { flex-direction: column; text-align: center; }
+      .features { grid-template-columns: 1fr; }
+      .pricing-cards { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="flags">🇮🇹 🇨🇭</div>
-    <h1>イタリア・スイス旅行</h1>
-    <p>2025年8月9日（土）〜 8月14日（木）｜ミラノ → ツェルマット → ブリエンツ湖 → チューリッヒ</p>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-logo">value gate</div>
+    <a href="#contact" class="header-cta">無料相談する</a>
   </header>
 
-  <div class="container">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-label">SERVICE 02 ― 採用コンサルティング</div>
+    <h1>採用がうまくいかない、<br>その原因を<em>根本から解決</em>します</h1>
+    <p>リクルート出身の採用のプロが、戦略設計から実行支援まで。<br>中小企業・ベンチャーの採用力を内側から変えるコンサルティング。</p>
+    <a href="#contact" class="hero-cta">まずは無料で相談する</a>
+  </section>
 
-    <!-- Route Map -->
-    <section class="map-section">
-      <div class="map-container">
-        <h3>🗺️ 旅のルートマップ</h3>
-        <div id="main-map"></div>
-        <div class="map-legend">
-          <span><span class="legend-dot" style="background:#2e7d32"></span>ミラノ（Day 1-2）</span>
-          <span><span class="legend-dot" style="background:#c62828"></span>ツェルマット（Day 2-4）</span>
-          <span><span class="legend-dot" style="background:#e65100"></span>リンゲンベルク（Day 4-5）</span>
-          <span><span class="legend-dot" style="background:#1565c0"></span>チューリッヒ（Day 6）</span>
-        </div>
+  <!-- Pain Points -->
+  <section class="section section-gray">
+    <div class="container">
+      <h2 class="section-title">こんなお悩みありませんか？</h2>
+      <p class="section-sub">多くの中小企業・成長ベンチャーが抱える採用課題</p>
+      <div class="pain-list">
+        <div class="pain-item">求人を出しても応募が集まらない</div>
+        <div class="pain-item">採用コストが高く、費用対効果が見えない</div>
+        <div class="pain-item">自社に合った採用手法がわからない</div>
+        <div class="pain-item">面接しても辞退・ミスマッチが多い</div>
+        <div class="pain-item">採用担当が不在で、ノウハウが社内に蓄積されない</div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Day 1: Aug 9 -->
-    <section class="day-section">
-      <div class="day-header italy">
-        <span class="day-flag">🇮🇹</span>
-        <div class="day-info">
-          <h2>8月9日（土）｜ミラノ到着日</h2>
-          <p>Day 1 — Milano</p>
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">value gateの採用コンサルティング</h2>
+      <p class="section-sub">リクルートで培った知見をもとに、貴社の採用を変える3つの強み</p>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">&#128202;</div>
+          <h3>採用戦略の設計</h3>
+          <p>貴社の事業計画・採用課題を深くヒアリングし、ターゲット設定・採用チャネル選定・スケジュールまで一気通貫で戦略を策定します。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#127919;</div>
+          <h3>応募数の最大化</h3>
+          <p>Indeed・求人媒体・スカウトなど最適なチャネルを選定し、求人原稿の改善やスカウト文面の設計で応募数を増加させます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128161;</div>
+          <h3>採用力の内製化</h3>
+          <p>単なる外注ではなく、採用ノウハウを社内に蓄積。面接トレーニングやKPI設計を通じて、自走できる採用体制を構築します。</p>
         </div>
       </div>
-      <div class="timeline">
-        <div class="timeline-item transport">
-          <div class="time">08:00</div>
-          <div class="event"><span class="emoji">✈️</span>ミラノ到着</div>
-          <div class="desc">マルペンサ空港 or リナーテ空港</div>
-        </div>
-        <div class="timeline-item hotel">
-          <div class="time">09:30</div>
-          <div class="event"><span class="emoji">🏨</span>HD8 ホテル チェックイン</div>
-          <div class="desc">荷物だけ預けてすぐ出発</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">10:00</div>
-          <div class="event"><span class="emoji">🚶</span>ガッレリア・ヴィットーリオ・エマヌエーレ2世を散策</div>
-          <div class="desc">周辺をぶらぶら</div>
-        </div>
-        <div class="timeline-item meal">
-          <div class="time">12:00</div>
-          <div class="event"><span class="emoji">🍝</span>ランチ：Via Pasteria <span class="rating">★ 4.7</span></div>
-          <div class="desc">ドゥオーモ近くで本格パスタ。人気店なので列覚悟！カチョエペペやリゾットが絶品</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">14:00</div>
-          <div class="event"><span class="emoji">⛪</span>ドゥオーモ広場を散策</div>
-          <div class="desc">外観を堪能（到着日は内部＆屋上は翌朝に）</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">16:00</div>
-          <div class="event"><span class="emoji">🛍️</span>ブレラ地区を散策</div>
-          <div class="desc">アート・ギャラリー・カフェが集まるおしゃれエリア</div>
-        </div>
-        <div class="timeline-item hotel">
-          <div class="time">18:00</div>
-          <div class="event"><span class="emoji">🛁</span>ホテルに戻って休憩・シャワー</div>
-        </div>
-        <div class="timeline-item meal">
-          <div class="time">19:30</div>
-          <div class="event"><span class="emoji">🍷</span>ディナー：Gloria Osteria Milano <span class="rating">★ 4.8</span></div>
-          <div class="desc">モダンイタリア料理の名店。牛カルパッチョ、タコのメインが絶品</div>
-          <span class="tag reservation">📞 要予約</span>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">21:30</div>
-          <div class="event"><span class="emoji">🌃</span>ドゥオーモのライトアップを見ながら帰宿</div>
-        </div>
-      </div>
-      <div class="day-map" id="map-day1"></div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Day 2: Aug 10 -->
-    <section class="day-section">
-      <div class="day-header italy">
-        <span class="day-flag">🇮🇹</span>
-        <div class="day-info">
-          <h2>8月10日（日）｜ミラノ観光 → ツェルマット移動</h2>
-          <p>Day 2 — Milano → Zermatt</p>
+  <!-- Flow -->
+  <section class="section section-gray">
+    <div class="container">
+      <h2 class="section-title">ご利用の流れ</h2>
+      <p class="section-sub">最短1週間でコンサルティング開始</p>
+      <div class="flow-list">
+        <div class="flow-item">
+          <div class="flow-num">1</div>
+          <div class="flow-content">
+            <h3>無料相談・ヒアリング</h3>
+            <p>現在の採用状況・課題・ご予算をお伺いし、最適なプランをご提案します。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">2</div>
+          <div class="flow-content">
+            <h3>採用戦略の策定</h3>
+            <p>市場分析・競合調査をもとに、ターゲットペルソナと採用チャネルを設計します。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">3</div>
+          <div class="flow-content">
+            <h3>施策の実行支援</h3>
+            <p>求人設計・媒体運用・スカウト・面接フロー改善など具体施策を実行します。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">4</div>
+          <div class="flow-content">
+            <h3>効果測定・改善</h3>
+            <p>KPIをモニタリングし、PDCAを回しながら採用成果を最大化します。</p>
+          </div>
         </div>
       </div>
-      <div class="timeline">
-        <div class="timeline-item meal">
-          <div class="time">07:30</div>
-          <div class="event"><span class="emoji">🥐</span>朝食</div>
-          <div class="desc">ホテル朝食 or 近くのバールでエスプレッソ＆コルネット（クロワッサン）</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">09:00</div>
-          <div class="event"><span class="emoji">⛪</span>ドゥオーモ屋上テラス <span class="rating">★ 4.7</span></div>
-          <div class="desc">混む前に！大理石の尖塔の間を歩く幻想的な体験。チケットは事前オンライン購入推奨</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">11:00</div>
-          <div class="event"><span class="emoji">🎨</span>ガッレリア内を散策、お土産チェック</div>
-        </div>
-        <div class="timeline-item meal">
-          <div class="time">12:00</div>
-          <div class="event"><span class="emoji">🍝</span>ランチ：Taverna Trastevere Milano <span class="rating">★ 4.6</span></div>
-          <div class="desc">地元民にも人気の本格トラットリア。トリュフパスタやリゾット・ミラネーゼが◎</div>
-        </div>
-        <div class="timeline-item transport">
-          <div class="time">13:30</div>
-          <div class="event"><span class="emoji">🚆</span>ミラノ中央駅 → ブリークへ電車出発</div>
-        </div>
-        <div class="timeline-item transport">
-          <div class="time">17:30</div>
-          <div class="event"><span class="emoji">🏔️</span>ブリークでマッターホルン・ゴッタルド鉄道に乗り換え</div>
-          <div class="desc">ツェルマットへ</div>
-        </div>
-        <div class="timeline-item hotel">
-          <div class="time">18:30</div>
-          <div class="event"><span class="emoji">🏨</span>ホテル シティ チェックイン</div>
-        </div>
-        <div class="timeline-item meal">
-          <div class="time">19:30</div>
-          <div class="event"><span class="emoji">🫕</span>ディナー：Restaurant Schäferstube <span class="rating">★ 4.6</span></div>
-          <div class="desc">村の中心部にあるスイス料理の名店。ラムラックやチーズフォンデュが看板メニュー</div>
-          <span class="tag reservation">📞 要予約</span>
-        </div>
-      </div>
-      <div class="day-map" id="map-day2"></div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Day 3: Aug 11 -->
-    <section class="day-section">
-      <div class="day-header swiss">
-        <span class="day-flag">🇨🇭</span>
-        <div class="day-info">
-          <h2>8月11日（月）｜ツェルマット満喫日</h2>
-          <p>Day 3 — Zermatt</p>
+  <!-- Pricing -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">料金プラン</h2>
+      <p class="section-sub">中小企業でも始めやすい、柔軟な料金体系</p>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <h3>ライトプラン</h3>
+          <div class="pricing-price">10<span>万円〜/月</span></div>
+          <p class="pricing-note">採用改善の第一歩に</p>
+          <ul class="pricing-list">
+            <li>採用課題の診断</li>
+            <li>求人原稿の改善提案</li>
+            <li>月1回の定例ミーティング</li>
+            <li>チャットでの相談対応</li>
+          </ul>
+        </div>
+        <div class="pricing-card popular">
+          <h3>スタンダードプラン</h3>
+          <div class="pricing-price">30<span>万円〜/月</span></div>
+          <p class="pricing-note">本格的な採用改革に</p>
+          <ul class="pricing-list">
+            <li>ライトプランの全内容</li>
+            <li>採用戦略の設計・実行支援</li>
+            <li>媒体選定・スカウト設計</li>
+            <li>面接フロー改善</li>
+            <li>週1回の定例ミーティング</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <h3>成果報酬プラン</h3>
+          <div class="pricing-price">完全成果報酬</div>
+          <p class="pricing-note">リスクゼロで始めたい方に</p>
+          <ul class="pricing-list">
+            <li>採用決定時のみ費用発生</li>
+            <li>初期費用・月額費用なし</li>
+            <li>採用戦略〜実行まで一貫支援</li>
+            <li>詳細は無料相談にて</li>
+          </ul>
         </div>
       </div>
-      <div class="timeline">
-        <div class="timeline-item meal">
-          <div class="time">07:00</div>
-          <div class="event"><span class="emoji">☕</span>朝食</div>
-          <div class="desc">ホテル朝食でしっかり食べて出発準備</div>
-        </div>
-        <div class="timeline-item transport">
-          <div class="time">08:00</div>
-          <div class="event"><span class="emoji">🚞</span>ゴルナーグラート鉄道で標高3,089mへ</div>
-          <div class="desc">早朝は空気が澄んでいてマッターホルンが最高に映える！</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">09:00</div>
-          <div class="event"><span class="emoji">🏔️</span>ゴルナーグラート展望台 <span class="rating">★ 4.8</span></div>
-          <div class="desc">マッターホルンを眺める。写真撮影タイム</div>
-        </div>
-        <div class="timeline-item meal">
-          <div class="time">11:00</div>
-          <div class="event"><span class="emoji">🥗</span>ランチ：Restaurant Zum See <span class="rating">★ 4.8</span></div>
-          <div class="desc">帰り道にフリ駅から徒歩15分のアルプス山小屋レストラン。自家製パスタ＆ロスティが絶品！</div>
-          <span class="tag reservation">📞 要予約</span>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">13:30</div>
-          <div class="event"><span class="emoji">🚶</span>ツェルマット村へ徒歩で下山</div>
-          <div class="desc">散策しながら</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">15:00</div>
-          <div class="event"><span class="emoji">🍫</span>スイスチョコ試食＆お土産ショッピング</div>
-        </div>
-        <div class="timeline-item hotel">
-          <div class="time">17:00</div>
-          <div class="event"><span class="emoji">💆</span>ホテルのスパ or リラックスタイム</div>
-        </div>
-        <div class="timeline-item meal">
-          <div class="time">19:30</div>
-          <div class="event"><span class="emoji">🍖</span>ディナー：Bergrestaurant Blatten <span class="rating">★ 4.8</span></div>
-          <div class="desc">地元スイス料理の穴場的名店。マッシュルームスープとロスティが絶品！</div>
-        </div>
-      </div>
-      <div class="day-map" id="map-day3"></div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Day 4: Aug 12 -->
-    <section class="day-section">
-      <div class="day-header swiss">
-        <span class="day-flag">🇨🇭</span>
-        <div class="day-info">
-          <h2>8月12日（火）｜ツェルマット → リンゲンベルク移動</h2>
-          <p>Day 4 — Zermatt → Ringgenberg</p>
+  <!-- Profile -->
+  <section class="section section-gray">
+    <div class="container">
+      <h2 class="section-title">担当コンサルタント</h2>
+      <p class="section-sub">リクルート出身のプロフェッショナルが直接支援</p>
+      <div class="profile">
+        <div class="profile-avatar">藤</div>
+        <div>
+          <h3>藤沼 望</h3>
+          <div class="role">value gate株式会社 代表取締役</div>
+          <p>株式会社リクルートにてセールスリーダーとして新規顧客開拓・採用支援に従事。KPI設計・運用で営業表彰を受賞。その経験を活かし、中小企業・成長ベンチャーの採用課題を根本から解決するためvalue gateを創業。</p>
         </div>
       </div>
-      <div class="timeline">
-        <div class="timeline-item meal">
-          <div class="time">07:30</div>
-          <div class="event"><span class="emoji">☕</span>朝食：ホテル朝食</div>
-        </div>
-        <div class="timeline-item transport">
-          <div class="time">09:00</div>
-          <div class="event"><span class="emoji">🏨</span>チェックアウト＆電車でインターラーケン方面へ</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">11:00</div>
-          <div class="event"><span class="emoji">🕯️</span>聖ベアトゥス洞窟 <span class="rating">★ 4.6</span></div>
-          <div class="desc">トゥーン湖畔の神秘的な鍾乳洞。1km超の洞内を約1時間探検（10時〜17時）</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">13:00</div>
-          <div class="event"><span class="emoji">🌊</span>聖ベアトゥス滝 <span class="rating">★ 4.8</span></div>
-        </div>
-        <div class="timeline-item meal">
-          <div class="time">14:00</div>
-          <div class="event"><span class="emoji">🥩</span>ランチ：洞窟併設レストラン</div>
-          <div class="desc">スイス軽食</div>
-        </div>
-        <div class="timeline-item hotel">
-          <div class="time">16:00</div>
-          <div class="event"><span class="emoji">🏨</span>Hotel Brienzersee チェックイン</div>
-          <div class="desc">ブリエンツ湖畔リンゲンベルク</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">18:30</div>
-          <div class="event"><span class="emoji">🌅</span>湖を眺めながらテラスでアペリティフ</div>
-        </div>
-        <div class="timeline-item meal">
-          <div class="time">19:30</div>
-          <div class="event"><span class="emoji">🫕</span>ディナー：Restaurant Bramisegg <span class="rating">★ 4.8</span></div>
-          <div class="desc">ブリエンツ湖を一望できる山の上の絶景レストラン。ラクレット、ロスティ、グラーシュが名物</div>
-          <span class="tag reservation">📞 要予約（水〜日のみ営業）</span>
-        </div>
-      </div>
-      <div class="day-map" id="map-day4"></div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Day 5: Aug 13 -->
-    <section class="day-section">
-      <div class="day-header swiss">
-        <span class="day-flag">🇨🇭</span>
-        <div class="day-info">
-          <h2>8月13日（水）｜ブリエンツ湖エリアをゆっくり</h2>
-          <p>Day 5 — Lake Brienz &amp; Interlaken</p>
-        </div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item meal">
-          <div class="time">08:00</div>
-          <div class="event"><span class="emoji">☕</span>朝食：ホテル朝食</div>
-          <div class="desc">湖を眺めながら優雅に</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">09:30</div>
-          <div class="event"><span class="emoji">🚶</span>ブリエンツ湖ウォーク <span class="rating">★ 4.8</span></div>
-          <div class="desc">ターコイズブルーの湖畔を朝の爽やかな空気の中で散策</div>
-        </div>
-        <div class="timeline-item transport">
-          <div class="time">11:30</div>
-          <div class="event"><span class="emoji">⛴️</span>ブリエンツへ蒸気船クルーズ</div>
-          <div class="desc">ヴィンテージ蒸気船で湖をのんびり横断（約1時間）</div>
-        </div>
-        <div class="timeline-item meal">
-          <div class="time">13:00</div>
-          <div class="event"><span class="emoji">🏔️</span>ランチ：Harder Kulm（ハーダークルム展望台） <span class="rating">★ 4.6</span></div>
-          <div class="desc">インターラーケンのフニクラーで登る絶景レストラン。2つの湖と山々を一望しながら食事</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">15:00</div>
-          <div class="event"><span class="emoji">🛍️</span>インターラーケン市内でショッピング・カフェタイム</div>
-        </div>
-        <div class="timeline-item hotel">
-          <div class="time">17:00</div>
-          <div class="event"><span class="emoji">🚌</span>ホテルへ戻る</div>
-        </div>
-        <div class="timeline-item hotel">
-          <div class="time">18:30</div>
-          <div class="event"><span class="emoji">🛁</span>ゆっくり入浴・荷物整理</div>
-          <div class="desc">明日は移動日</div>
-        </div>
-        <div class="timeline-item meal">
-          <div class="time">19:30</div>
-          <div class="event"><span class="emoji">🫕</span>ディナー：Restaurant Taverne <span class="rating">★ 4.4</span></div>
-          <div class="desc">チーズフォンデュとチョコレートフォンデュが名物。チョコフォンデュはスイス最後の夜に◎！</div>
-        </div>
-      </div>
-      <div class="day-map" id="map-day5"></div>
-    </section>
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <h2>まずは無料相談から始めませんか？</h2>
+    <p>貴社の採用課題を丁寧にヒアリングし、最適なプランをご提案します。</p>
+    <a href="https://value-gate.jp/" class="cta-btn">無料相談に申し込む</a>
+    <p class="cta-note">※ 相談は無料です。お気軽にお問い合わせください。</p>
+  </section>
 
-    <!-- Day 6: Aug 14 -->
-    <section class="day-section">
-      <div class="day-header swiss">
-        <span class="day-flag">🇨🇭</span>
-        <div class="day-info">
-          <h2>8月14日（木）｜チューリッヒへ・旅の締めくくり</h2>
-          <p>Day 6 — Zürich</p>
-        </div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item meal">
-          <div class="time">08:00</div>
-          <div class="event"><span class="emoji">☕</span>朝食：ホテル朝食</div>
-        </div>
-        <div class="timeline-item transport">
-          <div class="time">09:00</div>
-          <div class="event"><span class="emoji">🏨</span>チェックアウト＆電車でチューリッヒへ</div>
-          <div class="desc">約2時間</div>
-        </div>
-        <div class="timeline-item transport">
-          <div class="time">11:00</div>
-          <div class="event"><span class="emoji">🎭</span>チューリッヒ中央駅着</div>
-          <div class="desc">荷物をコインロッカーへ</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">11:30</div>
-          <div class="event"><span class="emoji">⛪</span>グロスミュンスター <span class="rating">★ 4.5</span></div>
-          <div class="desc">入場無料・塔は5CHF</div>
-        </div>
-        <div class="timeline-item meal">
-          <div class="time">12:30</div>
-          <div class="event"><span class="emoji">🍽️</span>ランチ：Zeughauskeller <span class="rating">★ 4.5</span></div>
-          <div class="desc">15世紀の武器庫を改装した歴史的レストラン。ヴィーナーシュニッツェルとブラートヴルストが名物。チューリッヒで最も有名なスイス料理店！</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">14:00</div>
-          <div class="event"><span class="emoji">🌳</span>リンデンホフの丘 <span class="rating">★ 4.7</span></div>
-          <div class="desc">旧市街を一望。巨大チェスも◎</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">15:00</div>
-          <div class="event"><span class="emoji">🏛️</span>スイス国立博物館 <span class="rating">★ 4.6</span></div>
-          <div class="desc">中央駅隣、火〜日10時〜。スイス文化をおさらい</div>
-        </div>
-        <div class="timeline-item activity">
-          <div class="time">16:30</div>
-          <div class="event"><span class="emoji">🍫</span>バーンホフシュトラーセで最終お土産調達</div>
-          <div class="desc">リンツ・シュプリングリーなど</div>
-        </div>
-        <div class="timeline-item hotel">
-          <div class="time">18:00</div>
-          <div class="event"><span class="emoji">🚊</span>ノボテル チューリッヒ エアポート メッセ</div>
-          <div class="desc">移動・チェックイン</div>
-        </div>
-        <div class="timeline-item meal">
-          <div class="time">19:30</div>
-          <div class="event"><span class="emoji">🥂</span>ディナー：ホテル内レストラン or 空港近く</div>
-          <div class="desc">軽めに。翌日のフライトに備えて早めに就寝</div>
-        </div>
-      </div>
-      <div class="day-map" id="map-day6"></div>
-    </section>
-
-    <!-- Reservation Info -->
-    <section class="info-section">
-      <h3>📞 予約が必要なレストラン</h3>
-      <p style="font-size:0.88rem; color:var(--text-light); margin-bottom:14px;">事前にOpenTableやTheForkなどで予約しましょう！</p>
-      <ul>
-        <li><span class="date-badge">8/9 ディナー</span>Gloria Osteria Milano</li>
-        <li><span class="date-badge">8/10 ディナー</span>Restaurant Schäferstube</li>
-        <li><span class="date-badge">8/11 ランチ</span>Restaurant Zum See</li>
-        <li><span class="date-badge">8/12 ディナー</span>Restaurant Bramisegg（水〜日営業）</li>
-      </ul>
-    </section>
-
-    <!-- Tickets Info -->
-    <section class="info-section">
-      <h3>🎫 事前購入推奨チケット</h3>
-      <ul>
-        <li><span class="date-badge">8/10</span>ドゥオーモ屋上テラス — duomomilano.it で購入</li>
-        <li><span class="date-badge">8/11</span>ゴルナーグラート鉄道 — gornergrat.ch で購入</li>
-      </ul>
-    </section>
-
-  </div>
-
-  <footer>
-    <p>🇮🇹🇨🇭 Buon viaggio! 素敵な旅を！</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 value gate株式会社 All rights reserved.</p>
   </footer>
 
-<script>
-  // Shared tile layer config
-  var tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-  var tileAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
-
-  // Key locations [lat, lng]
-  var locations = {
-    milano:       [45.4642, 9.1900],
-    duomo:        [45.4641, 9.1919],
-    galleria:     [45.4659, 9.1900],
-    brera:        [45.4720, 9.1876],
-    gloriaOsteria:[45.4675, 9.1830],
-    viaPasteria:  [45.4638, 9.1910],
-    tavernaTrastevere: [45.4650, 9.1870],
-    milanoStation:[45.4861, 9.2042],
-    zermatt:      [46.0207, 7.7491],
-    gornergrat:   [45.9833, 7.7867],
-    zumSee:       [46.0100, 7.7560],
-    blatten:      [46.0150, 7.7420],
-    schaferstube: [46.0210, 7.7485],
-    beatusCaves:  [46.6850, 7.8130],
-    beatusFalls:  [46.6855, 7.8120],
-    ringgenberg:  [46.7000, 7.8930],
-    bramisegg:    [46.7350, 7.9600],
-    brienz:       [46.7570, 8.0440],
-    interlaken:   [46.6863, 7.8632],
-    harderKulm:   [46.6950, 7.8580],
-    taverne:      [46.6860, 7.8610],
-    zurich:       [47.3769, 8.5417],
-    grossmunster: [47.3700, 8.5441],
-    zeughaus:     [47.3728, 8.5390],
-    lindenhof:    [47.3730, 8.5408],
-    nationalMuseum:[47.3790, 8.5398],
-    bahnhofstr:   [47.3740, 8.5390],
-    zurichAirport:[47.4505, 8.5614]
-  };
-
-  // Custom icon factory
-  function makeIcon(color) {
-    return L.divIcon({
-      className: '',
-      html: '<div style="width:14px;height:14px;border-radius:50%;background:' + color + ';border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.3)"></div>',
-      iconSize: [14, 14],
-      iconAnchor: [7, 7]
-    });
-  }
-  function makeBigIcon(color, label) {
-    return L.divIcon({
-      className: '',
-      html: '<div style="display:flex;align-items:center;gap:4px"><div style="width:18px;height:18px;border-radius:50%;background:' + color + ';border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div><span style="font-size:12px;font-weight:700;color:' + color + ';text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff">' + label + '</span></div>',
-      iconSize: [100, 18],
-      iconAnchor: [9, 9]
-    });
-  }
-
-  // === Main Route Map ===
-  var mainMap = L.map('main-map').setView([46.2, 8.5], 7);
-  L.tileLayer(tileUrl, { attribution: tileAttr, maxZoom: 18 }).addTo(mainMap);
-
-  var routePoints = [locations.milano, locations.zermatt, locations.ringgenberg, locations.zurich];
-  var routeColors = ['#2e7d32', '#c62828', '#e65100', '#1565c0'];
-  var routeLabels = ['Milano', 'Zermatt', 'Ringgenberg', 'Zürich'];
-
-  routePoints.forEach(function(pt, i) {
-    L.marker(pt, { icon: makeBigIcon(routeColors[i], routeLabels[i]) }).addTo(mainMap);
-  });
-
-  // Draw route lines
-  L.polyline([locations.milano, locations.zermatt], { color: '#2e7d32', weight: 3, dashArray: '8,6', opacity: 0.7 }).addTo(mainMap);
-  L.polyline([locations.zermatt, locations.ringgenberg], { color: '#c62828', weight: 3, dashArray: '8,6', opacity: 0.7 }).addTo(mainMap);
-  L.polyline([locations.ringgenberg, locations.zurich], { color: '#e65100', weight: 3, dashArray: '8,6', opacity: 0.7 }).addTo(mainMap);
-
-  mainMap.fitBounds([locations.milano, locations.zurich], { padding: [40, 40] });
-
-  // === Day Maps ===
-  function createDayMap(id, spots, center, zoom) {
-    var map = L.map(id, { scrollWheelZoom: false }).setView(center, zoom);
-    L.tileLayer(tileUrl, { attribution: tileAttr, maxZoom: 18 }).addTo(map);
-    var bounds = [];
-    spots.forEach(function(s) {
-      L.marker(s.pos, { icon: makeIcon(s.color || '#1565c0') })
-        .bindPopup('<b>' + s.name + '</b>' + (s.desc ? '<br>' + s.desc : ''))
-        .addTo(map);
-      bounds.push(s.pos);
-    });
-    if (bounds.length > 1) map.fitBounds(bounds, { padding: [30, 30] });
-    return map;
-  }
-
-  // Day 1: Milano
-  createDayMap('map-day1', [
-    { pos: locations.duomo, name: 'ドゥオーモ', color: '#1565c0', desc: '広場を散策' },
-    { pos: locations.galleria, name: 'ガッレリア', color: '#1565c0', desc: 'ヴィットーリオ・エマヌエーレ2世' },
-    { pos: locations.brera, name: 'ブレラ地区', color: '#6a1b9a', desc: 'アート＆カフェ' },
-    { pos: locations.viaPasteria, name: 'Via Pasteria', color: '#e65100', desc: 'ランチ ★4.7' },
-    { pos: locations.gloriaOsteria, name: 'Gloria Osteria', color: '#e65100', desc: 'ディナー ★4.8' }
-  ], locations.duomo, 14);
-
-  // Day 2: Milano → Zermatt
-  createDayMap('map-day2', [
-    { pos: locations.duomo, name: 'ドゥオーモ屋上', color: '#1565c0', desc: '★4.7' },
-    { pos: locations.tavernaTrastevere, name: 'Taverna Trastevere', color: '#e65100', desc: 'ランチ ★4.6' },
-    { pos: locations.milanoStation, name: 'ミラノ中央駅', color: '#6a1b9a', desc: '電車出発' },
-    { pos: locations.zermatt, name: 'ツェルマット', color: '#c62828', desc: 'ホテル シティ' },
-    { pos: locations.schaferstube, name: 'Schäferstube', color: '#e65100', desc: 'ディナー ★4.6' }
-  ], [45.7, 8.5], 8);
-
-  // Day 3: Zermatt
-  createDayMap('map-day3', [
-    { pos: locations.zermatt, name: 'ツェルマット村', color: '#c62828', desc: 'ホテル＆散策' },
-    { pos: locations.gornergrat, name: 'ゴルナーグラート展望台', color: '#1565c0', desc: '標高3,089m ★4.8' },
-    { pos: locations.zumSee, name: 'Restaurant Zum See', color: '#e65100', desc: 'ランチ ★4.8' },
-    { pos: locations.blatten, name: 'Bergrestaurant Blatten', color: '#e65100', desc: 'ディナー ★4.8' }
-  ], locations.zermatt, 13);
-
-  // Day 4: Zermatt → Ringgenberg
-  createDayMap('map-day4', [
-    { pos: locations.zermatt, name: 'ツェルマット', color: '#c62828', desc: 'チェックアウト' },
-    { pos: locations.beatusCaves, name: '聖ベアトゥス洞窟', color: '#1565c0', desc: '★4.6' },
-    { pos: locations.ringgenberg, name: 'Hotel Brienzersee', color: '#00838f', desc: 'チェックイン' },
-    { pos: locations.bramisegg, name: 'Bramisegg', color: '#e65100', desc: 'ディナー ★4.8' }
-  ], [46.7, 7.9], 10);
-
-  // Day 5: Brienz area
-  createDayMap('map-day5', [
-    { pos: locations.ringgenberg, name: 'Hotel Brienzersee', color: '#00838f', desc: '出発' },
-    { pos: locations.brienz, name: 'ブリエンツ', color: '#1565c0', desc: '蒸気船クルーズ' },
-    { pos: locations.harderKulm, name: 'Harder Kulm', color: '#e65100', desc: 'ランチ ★4.6' },
-    { pos: locations.interlaken, name: 'インターラーケン', color: '#6a1b9a', desc: 'ショッピング' },
-    { pos: locations.taverne, name: 'Restaurant Taverne', color: '#e65100', desc: 'ディナー ★4.4' }
-  ], [46.72, 7.92], 12);
-
-  // Day 6: Zürich
-  createDayMap('map-day6', [
-    { pos: locations.grossmunster, name: 'グロスミュンスター', color: '#1565c0', desc: '★4.5' },
-    { pos: locations.zeughaus, name: 'Zeughauskeller', color: '#e65100', desc: 'ランチ ★4.5' },
-    { pos: locations.lindenhof, name: 'リンデンホフの丘', color: '#1565c0', desc: '★4.7' },
-    { pos: locations.nationalMuseum, name: 'スイス国立博物館', color: '#1565c0', desc: '★4.6' },
-    { pos: locations.bahnhofstr, name: 'バーンホフシュトラーセ', color: '#6a1b9a', desc: 'お土産' },
-    { pos: locations.zurichAirport, name: 'ノボテル空港', color: '#00838f', desc: 'チェックイン' }
-  ], locations.zurich, 12);
-</script>
 </body>
 </html>
