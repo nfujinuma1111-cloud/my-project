@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>採用コンサルティング | value gate株式会社</title>
+  <style>
+    :root {
+      --primary: #1a3c6e;
+      --accent: #e8632b;
+      --accent-hover: #d4551e;
+      --dark: #1a1a2e;
+      --text: #333;
+      --text-light: #666;
+      --bg: #fff;
+      --bg-gray: #f7f8fa;
+      --border: #e0e4ea;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', sans-serif;
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== Header ===== */
+    .header {
+      background: #fff;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.05em;
+    }
+    .header-cta {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .header-cta:hover { background: var(--accent-hover); }
+
+    /* ===== Hero ===== */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #2a5a9e 100%);
+      color: #fff;
+      padding: 100px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: var(--bg);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .hero-label {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 6px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+      letter-spacing: 0.1em;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: #ffc857;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 16px 48px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(232,99,43,0.4);
+    }
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(232,99,43,0.5);
+    }
+
+    /* ===== Section common ===== */
+    .section { padding: 80px 24px; }
+    .section-gray { background: var(--bg-gray); }
+    .section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--text-light);
+      margin-bottom: 48px;
+      font-size: 0.95rem;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* ===== Pain points ===== */
+    .pain-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .pain-item {
+      background: #fff;
+      border-left: 4px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      font-size: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .pain-item::before {
+      content: '✕ ';
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ===== Features ===== */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 36px 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); }
+    .feature-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+    }
+    .feature-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* ===== Flow ===== */
+    .flow-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .flow-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      position: relative;
+      padding-bottom: 36px;
+    }
+    .flow-item:last-child { padding-bottom: 0; }
+    .flow-item::before {
+      content: '';
+      position: absolute;
+      left: 23px;
+      top: 48px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .flow-item:last-child::before { display: none; }
+    .flow-num {
+      min-width: 48px;
+      height: 48px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .flow-content h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .flow-content p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* ===== Pricing ===== */
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .pricing-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .pricing-card.popular {
+      border-color: var(--accent);
+      position: relative;
+    }
+    .pricing-card.popular::before {
+      content: '人気No.1';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      padding: 4px 16px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .pricing-card h3 {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .pricing-price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .pricing-price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--text-light);
+    }
+    .pricing-note {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+    .pricing-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .pricing-list li {
+      padding: 8px 0;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--bg-gray);
+    }
+    .pricing-list li::before {
+      content: '✓ ';
+      color: #2ecc71;
+      font-weight: 700;
+    }
+
+    /* ===== Profile ===== */
+    .profile {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 36px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .profile-avatar {
+      width: 100px;
+      height: 100px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .profile h3 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+    .profile .role {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .profile p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, #2a5a9e 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .cta-section h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      opacity: 0.9;
+      margin-bottom: 32px;
+      font-size: 1rem;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 18px 56px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(232,99,43,0.4);
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(232,99,43,0.5);
+    }
+    .cta-note {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.85rem;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.7rem; }
+      .section-title { font-size: 1.4rem; }
+      .profile { flex-direction: column; text-align: center; }
+      .features { grid-template-columns: 1fr; }
+      .pricing-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-logo">value gate</div>
+    <a href="#contact" class="header-cta">無料相談する</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-label">SERVICE 02 ― 採用コンサルティング</div>
+    <h1>採用がうまくいかない、<br>その原因を<em>根本から解決</em>します</h1>
+    <p>リクルート出身の採用のプロが、戦略設計から実行支援まで。<br>中小企業・ベンチャーの採用力を内側から変えるコンサルティング。</p>
+    <a href="#contact" class="hero-cta">まずは無料で相談する</a>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="section section-gray">
+    <div class="container">
+      <h2 class="section-title">こんなお悩みありませんか？</h2>
+      <p class="section-sub">多くの中小企業・成長ベンチャーが抱える採用課題</p>
+      <div class="pain-list">
+        <div class="pain-item">求人を出しても応募が集まらない</div>
+        <div class="pain-item">採用コストが高く、費用対効果が見えない</div>
+        <div class="pain-item">自社に合った採用手法がわからない</div>
+        <div class="pain-item">面接しても辞退・ミスマッチが多い</div>
+        <div class="pain-item">採用担当が不在で、ノウハウが社内に蓄積されない</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">value gateの採用コンサルティング</h2>
+      <p class="section-sub">リクルートで培った知見をもとに、貴社の採用を変える3つの強み</p>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>採用戦略の設計</h3>
+          <p>貴社の事業計画・採用課題を深くヒアリングし、ターゲット設定・採用チャネル選定・スケジュールまで一気通貫で戦略を策定します。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>応募数の最大化</h3>
+          <p>Indeed・求人媒体・スカウトなど最適なチャネルを選定し、求人原稿の改善やスカウト文面の設計で応募数を増加させます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3>採用力の内製化</h3>
+          <p>単なる外注ではなく、採用ノウハウを社内に蓄積。面接トレーニングやKPI設計を通じて、自走できる採用体制を構築します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flow -->
+  <section class="section section-gray">
+    <div class="container">
+      <h2 class="section-title">ご利用の流れ</h2>
+      <p class="section-sub">最短1週間でコンサルティング開始</p>
+      <div class="flow-list">
+        <div class="flow-item">
+          <div class="flow-num">1</div>
+          <div class="flow-content">
+            <h3>無料相談・ヒアリング</h3>
+            <p>現在の採用状況・課題・ご予算をお伺いし、最適なプランをご提案します。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">2</div>
+          <div class="flow-content">
+            <h3>採用戦略の策定</h3>
+            <p>市場分析・競合調査をもとに、ターゲットペルソナと採用チャネルを設計します。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">3</div>
+          <div class="flow-content">
+            <h3>施策の実行支援</h3>
+            <p>求人設計・媒体運用・スカウト・面接フロー改善など具体施策を実行します。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">4</div>
+          <div class="flow-content">
+            <h3>効果測定・改善</h3>
+            <p>KPIをモニタリングし、PDCAを回しながら採用成果を最大化します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">料金プラン</h2>
+      <p class="section-sub">中小企業でも始めやすい、柔軟な料金体系</p>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <h3>ライトプラン</h3>
+          <div class="pricing-price">10<span>万円〜/月</span></div>
+          <p class="pricing-note">採用改善の第一歩に</p>
+          <ul class="pricing-list">
+            <li>採用課題の診断</li>
+            <li>求人原稿の改善提案</li>
+            <li>月1回の定例ミーティング</li>
+            <li>チャットでの相談対応</li>
+          </ul>
+        </div>
+        <div class="pricing-card popular">
+          <h3>スタンダードプラン</h3>
+          <div class="pricing-price">30<span>万円〜/月</span></div>
+          <p class="pricing-note">本格的な採用改革に</p>
+          <ul class="pricing-list">
+            <li>ライトプランの全内容</li>
+            <li>採用戦略の設計・実行支援</li>
+            <li>媒体選定・スカウト設計</li>
+            <li>面接フロー改善</li>
+            <li>週1回の定例ミーティング</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <h3>成果報酬プラン</h3>
+          <div class="pricing-price">完全成果報酬</div>
+          <p class="pricing-note">リスクゼロで始めたい方に</p>
+          <ul class="pricing-list">
+            <li>採用決定時のみ費用発生</li>
+            <li>初期費用・月額費用なし</li>
+            <li>採用戦略〜実行まで一貫支援</li>
+            <li>詳細は無料相談にて</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile -->
+  <section class="section section-gray">
+    <div class="container">
+      <h2 class="section-title">担当コンサルタント</h2>
+      <p class="section-sub">リクルート出身のプロフェッショナルが直接支援</p>
+      <div class="profile">
+        <div class="profile-avatar">藤</div>
+        <div>
+          <h3>藤沼 望</h3>
+          <div class="role">value gate株式会社 代表取締役</div>
+          <p>株式会社リクルートにてセールスリーダーとして新規顧客開拓・採用支援に従事。KPI設計・運用で営業表彰を受賞。その経験を活かし、中小企業・成長ベンチャーの採用課題を根本から解決するためvalue gateを創業。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <h2>まずは無料相談から始めませんか？</h2>
+    <p>貴社の採用課題を丁寧にヒアリングし、最適なプランをご提案します。</p>
+    <a href="https://value-gate.jp/" class="cta-btn">無料相談に申し込む</a>
+    <p class="cta-note">※ 相談は無料です。お気軽にお問い合わせください。</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 value gate株式会社 All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
